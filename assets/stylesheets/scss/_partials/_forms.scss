@@ -1,0 +1,496 @@
+/*--- General Form Elements ---*/
+
+.empty-value { 
+  font-weight: 100;
+  color: lighten($textcolor,20%);
+}
+
+input[type="text"],
+input[type="null"],
+input[type="string"],
+input:invalid,
+input:invalid:focus,
+input[type="number"],
+input[type="decimal"],
+input[type="datefield"],
+input[type="integer"],
+input[type="currency"],
+select,
+textarea,
+.hasDatepicker {
+  width: 100%;
+  margin: 0px;
+  outline: 0px none;
+  line-height: 13px;
+  padding: 7px;
+  font-size: 14px;
+  border: 1px solid $border;
+  color: $textcolor;
+  @include borderradius(2px);
+  @include boxshadow(0 0 0 transparent);
+  transition: background-color 0.2s ease 0s, color 0.2s ease 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+  font-family: 'museo_sans';
+  font-weight: 300;
+  width: 100%;
+  
+  &:focus {
+    border-color: darken($border,10%);
+    background-color: white;
+    color: $textcolor;
+    @include boxshadow(0 0 0 transparent);
+  }
+}
+
+textarea { resize: vertical; }
+
+input:-moz-placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+select:-moz-placeholder,
+select::-moz-placeholder {
+	color: lighten($textcolor,45%);
+}
+
+input[type="currency"] {
+  text-align: right;
+}
+
+input[readonly="readonly"] {
+  padding: 0;
+  color: $textcolor;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  border: 1px solid transparent;
+  background: transparent;
+  @include boxshadow(0 0 0 transparent);
+}
+
+input.hasDatepicker {
+  background: white url(../images/calendar.svg) no-repeat right center;
+  background-size: 20px 20px;
+}
+
+
+
+/*--- Select Overrides ---*/
+
+.select2-container--default {
+  width: 100% !important;
+  background: transparent;
+  @include boxshadow(0 0 0 transparent);
+  
+  .select2-selection--multiple,
+  .select2-selection--single {
+    background-color: white;
+    color: white;
+    font-weight: 300;
+    @include borderradius(2px);
+    border: 1px solid #e8e8e8;
+    height: 31px;
+  
+    .select2-selection__rendered {
+      height: 31px;
+      line-height: 31px;
+    }
+    
+    .select2-selection__arrow {
+      height: 26px;
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      width: 20px;
+      
+      b {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        border-width: 0 1px 1px 0 !important;
+        border-style: solid !important;
+        border-color: transparent rgba(black,0.5) rgba(black,0.5) transparent !important;
+        margin-left: -6px;
+        margin-top: -3px;
+        @include transform(rotate(45deg));
+      }
+    }
+  }
+
+  &.select2-container--open .select2-selection--multiple .select2-selection__arrow,    
+  &.select2-container--open .select2-selection--single .select2-selection__arrow,    
+  &:hover .select2-selection--multiple .select2-selection__arrow,
+  &:hover .select2-selection--single .select2-selection__arrow {
+      @include opacity(100);
+  }
+  
+  .select2-dropdown {
+    width: 100%;
+    border: 1px solid #eee;
+    @include boxshadow(0 1px 3px rgba(black,0.1));
+
+    .select2-results {
+
+      .select2-results__option {
+        padding: 10px 15px 10px 15px;
+        font-size: 13px !important;
+        border-top: 1px solid #eee;
+        font-size: 12px !important;
+        color: lighten($textcolor,30%) !important;
+        font-weight: 300;
+        line-height: 25px;
+        
+        &.select2-results__option--highlighted {
+          color: lighten($textcolor,30%) !important;
+          background: rgba(black,0.02);
+        }
+
+        &[aria-selected="true"] {
+          color: lighten($textcolor,20%) !important;
+          background: rgba(black,0.05);
+        }
+      }
+    }
+  }
+
+  &.select2-container--focus {
+    outline: 0 solid $darkcolor;
+  }
+    
+}
+
+/*--- Required Form Elements ---*/
+
+.required {
+
+  label {
+    &:after {
+      content: '*';
+      margin-left: 3px;
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="currency"],
+  input[type="null"],
+  .select2-selection--multiple,
+  .select2-selection--single,
+  .choice,
+  textarea,
+  input.hasDatepicker {
+    border-left: 2px solid $required;
+  }
+  
+  .choice {
+    padding-left: 10px;
+  }
+}        
+
+.error,
+.required.error {
+  
+  label { 
+    color: $error;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="currency"],
+  input[type="null"],
+  .select2-selection--multiple,
+  .select2-selection--single,
+  .choice,
+  textarea,
+  input.hasDatepicker {
+    border-color: $error;
+    background-color: lighten($error,52%);
+    border-left: 2px solid $error;
+  }
+  
+  .choice { background: none; }
+}     
+
+/*--- Datepicker Styles ---*/
+
+
+div.ui-datepicker {
+	font-family: "museo_sans";
+	font-size: 85%;
+	font-weight: 500;
+    -moz-border-radius: 0;
+    border-radius: 0px !important;
+    border: none !important;
+    box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.15);
+}
+.ui-widget-header {
+	background-image: none !important;
+	background: #fff !important;
+	border: none !important;
+}
+
+.ui-datepicker-calendar {
+  
+  .ui-state-default, 
+  .ui-widget-content .ui-state-default, 
+  .ui-widget-header .ui-state-default {
+  	border: none !important;
+      background: #ffffff !important;
+      padding: 0.6em;
+      transition: background-color 0.2s ease 0s, color 0.2s ease 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+  }
+  
+  .ui-datepicker th  {
+  	background: none !important;
+  	background-color: #fff;
+  }
+  
+  div.ui-datepicker tr > td:last-child, div.ui-datepicker tr > th:last-child {
+  	padding-right: 0;
+  }
+  
+  div.ui-datepicker tr > td:first-child, div.ui-datepicker tr > th:first-child {
+  	padding-left: 0;
+  }
+  
+  th:hover, tr:hover {
+      background: none repeat scroll 0 0 #fff;
+  }
+  
+  .ui-state-default:hover, 
+  .ui-widget-content .ui-state-default:hover, 
+  .ui-widget-header .ui-state-default,
+  .ui-state-hover {
+  	background: $maincolor !important;
+  	color: #fff;
+  }
+  
+  .ui-datepicker td:hover {
+  	background: none;
+  }
+
+}
+
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    display: block;
+    left: 8px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    position: absolute !important;
+    top: 4px !important;
+}
+
+.ui-widget-header .ui-datepicker-next .ui-icon {
+    background-image: url("../images/forward-arrow-48px.png") !important;
+    background-position: 0 0;
+    background-size: 45% auto;
+}
+
+.ui-widget-header .ui-datepicker-prev .ui-icon {
+    background-image: url("../images/back-arrow-48px.png") !important;
+    background-position: 0 0;
+    background-size: 45% auto;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    height: 1.8em !important;
+}
+
+
+
+
+/* Checkbox and Radio Button Styling */
+
+input.checkbox-styled {
+  display: none; 
+  
+  + label.checkbox-label {
+    display: block;
+    height: 16px;
+    cursor: pointer;
+    padding-left: 22px;
+    font-weight: 300;
+    color: $textcolor;
+    text-transform: none;
+    font-size: 13px;
+
+    &:before {
+      display: inline-block;
+      font-family: 'icomoon';
+      font-size: 16px;
+      line-height: 100%;
+      height: 16px;
+      width: 16px;
+      content: '\e904';
+      text-align: center;
+      color: lighten($textcolor,65%);
+      cursor: pointer;
+      margin: 0 6px 0 -22px;
+      position: relative;
+      top: 2px;
+    }
+
+    &:hover:before {
+      content: '\e905';
+      color: lighten($textcolor,45%);
+    }
+  
+    &:after { display: none !important; } // Removes asterisk on required 
+  }
+
+  &:checked + label.checkbox-label::before {
+    content: '\e903';
+    color: $primary;
+  }
+
+  /* Remove Checkboxes */
+    
+  &.checkbox-remove {
+
+    + label.checkbox-label {
+      background: none; 
+      margin: -8px 0 0 0;
+      
+      &:before {
+        content: '\e900';
+      }
+
+      &:hover:before {
+        content: '\e041';
+        color: $error;
+      }
+    }
+  
+    &:checked + label.checkbox-label:before {
+      content: '\e901';
+      color: $error;
+    }
+  }
+
+  &.checkbox-modify {
+
+    + label.checkbox-label {
+      background: none;
+
+      &:before {
+        content: '\e900';
+      }
+
+      &:hover:before {
+        content: '\e041';
+        color: $error;
+      }
+    }
+  
+    &:checked + label.checkbox-label::before {
+      content: '\e901';
+      color: $error;
+    }
+  }
+}
+
+
+input[type="radio"] {
+	margin-right: 8px;		
+}
+
+.choice {
+  height: auto;
+  min-height: 31px;
+  padding-top: 5px;
+  @include borderradius(2px 0 0 2px);
+  
+
+  label {
+  	display: inline-block;
+    font-weight: 300;
+    margin-right: 15px;
+    color: $textcolor;
+    text-transform: none;
+    font-size: 13px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 6px;
+    
+    input[type="radio"] {
+    	position: relative;
+    	margin: 0 40px 0 -30px;
+    	
+    	+ span {
+      	position: relative;
+    	}
+
+      + span:before,
+      + span:after {
+        position: absolute;
+        display: inline-block;
+        height: 22px;
+        width: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: center;
+        font-family: 'icomoon';
+        content: '\e900';
+        top: 0;
+        left: 0;
+        margin: -1px 8px 0 -22px;
+        color: lighten($textcolor,65%);
+        cursor: pointer;
+      }
+      
+      + span:after {
+        content: '\e902';
+        color: transparent;
+      }
+      
+/*
+      &:hover + span:after {
+        content: '\e902';
+        color: lighten($textcolor,65%);
+      }
+*/
+      &:checked + span:after {
+        content: '\e902';
+        color: $primary;
+      }
+    }
+
+    &:after { display: none !important; }  // Removes asterisk on required 
+  }
+}
+
+
+.indented {
+  padding-left: 20px;
+}
+
+label .number {
+  display: inline-block;
+  width: 20px;
+  margin-left: -20px;
+}
+
+section label.plain-label {
+    display: block;
+    color: $textcolor;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 300;  
+    text-transform: none;
+    vertical-align: top;
+    padding-top: 3px;
+}
+
+.sub-label {
+  font-size: 12px;
+  line-height: 1.4em;
+  color: lighten($textcolor,30%);
+  margin: 5px 0;
+}
+
+table tr td label {
+  margin: 0;
+}

@@ -1,0 +1,136 @@
+// Create Grid Layouts //
+
+@each $grid in $gridlist {
+  
+    .grid-#{nth($grid,1)} {   
+      $colmargin: nth($grid,3);
+      $rowmargin: nth($grid,4);
+      $columns: nth($grid,2);
+      $percentage: (100% / $columns);
+      $gutter: ($colmargin / 2);
+      
+      .row {
+        @include calc('width','100% + ' + $colmargin + '');
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+      }
+
+      @media (min-width: $screen-sm-min) {
+
+        @for $i from 1 through $columns {
+          .col-sm-#{$i} {
+            @include calc('width','((' + $percentage + ' - ' + $colmargin + ') * ' + $i + ') + (' + ($i - 1) + ' * ' + $colmargin + ')');
+            margin-left: $gutter;
+            margin-right: $gutter;
+            margin-bottom: $rowmargin;
+          }
+        }
+
+      }
+
+      @media (min-width: $screen-md-min) {
+
+        @for $i from 1 through $columns {
+          .col-md-#{$i} {
+            @include calc('width','((' + $percentage + ' - ' + $colmargin + ') * ' + $i + ') + (' + ($i - 1) + ' * ' + $colmargin + ')');
+            margin-left: $gutter;
+            margin-right: $gutter;
+            margin-bottom: $rowmargin;
+          }
+        }
+
+      }
+
+      @media (min-width: $screen-lg-min) {
+
+        @for $i from 1 through $columns {
+          .col-lg-#{$i} {
+            @include calc('width','((' + $percentage + ' - ' + $colmargin + ') * ' + $i + ') + (' + ($i - 1) + ' * ' + $colmargin + ')');
+            margin-left: $gutter;
+            margin-right: $gutter;
+            margin-bottom: $rowmargin;
+          }
+        }
+
+      }
+
+    }
+}
+
+
+.container {
+  margin: 0 auto;
+  padding: $containerp;
+  max-width: $contentw;
+}
+
+.row {
+  @extend %clearfix;
+  
+  div[class^="col-"], div[class*=" col-"] {
+    display: block;
+    float: left;
+    line-height: 1.4em;
+  }
+}
+
+// Overall Layout Elements //
+
+header {
+	height: $headerh;
+  position: relative;
+}
+
+footer {
+  height: $footerh;
+  position: relative;
+}
+
+.page-bdy {
+  position: relative;
+  @include calc('height','100% - ' + $headerh );
+  overflow: hidden;
+  
+  nav {
+    display: block;
+    position: relative;
+    height: 100%;
+  	width: $navw;
+    float: left;
+    padding: $navpadding;
+
+    + #main {
+      float: left;
+      display: block;
+      height: 100%;
+      @include calc('width','100% - ' + $navw );
+      padding: $mainpadding;
+      overflow-y: auto;
+      
+      section,
+      .notices {
+        max-width: $sectionw;
+      }
+    }
+  }
+  
+  &.wfooter {
+    @include calc('height','100% - ' + ($headerh + $footerh) );
+    
+  }
+}
+
+@media (min-width: ($contentw + 1)) {
+
+.page-bdy {
+
+  nav {
+    @include calc('margin-left','(100% - ' + $contentw + ') / 2');
+    
+    + #main {
+      @include calc('width','100% - ' + $navw + ' - ((100% - ' + $contentw + ') / 2)');
+    }
+  }
+}
+
+}

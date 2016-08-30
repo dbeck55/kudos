@@ -1,0 +1,89 @@
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin calc-imp($property, $expression) {
+  #{$property}: -moz-calc(#{$expression}) !important;
+  #{$property}: -o-calc(#{$expression}) !important;
+  #{$property}: -webkit-calc(#{$expression}) !important;
+  #{$property}: calc(#{$expression}) !important;
+}
+
+@mixin boxshadow($bshadow) {
+  -webkit-box-shadow: $bshadow;
+  -moz-box-shadow: $bshadow;
+  -ms-box-shadow: $bshadow;
+  box-shadow: $bshadow;
+}
+
+@mixin borderradius($bradius) {
+  -webkit-border-radius: $bradius;
+  -moz-border-radius: $bradius;
+  -ms-border-radius: $bradius;
+  border-radius: $bradius;
+}
+
+@mixin horiz-gradient($fromColor, $toColor) {
+  border-right: 1px solid $toColor;
+  background: $fromColor;
+  background: -moz-linear-gradient(left, $fromColor 0%, $toColor 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, $fromColor), color-stop(100%, $toColor));
+  background: -webkit-linear-gradient(left, $fromColor 0%, $toColor 100%);
+  background: -o-linear-gradient(left, $fromColor 0%, $toColor 100%);
+  background: -ms-linear-gradient(left, $fromColor 0%, $toColor 100%);
+  background: linear-gradient(to right, $fromColor 0%, $toColor 100%);
+}
+
+@mixin vert-gradient($fromColor, $toColor) {
+  border-right: 1px solid $toColor;
+  background: $fromColor;
+  background: -moz-linear-gradient(top, $fromColor 0%, $toColor 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $fromColor), color-stop(100%, $toColor));
+  background: -webkit-linear-gradient(top, $fromColor 0%, $toColor 100%);
+  background: -o-linear-gradient(top, $fromColor 0%, $toColor 100%);
+  background: -ms-linear-gradient(top, $fromColor 0%, $toColor 100%);
+  background: linear-gradient(to bottom, $fromColor 0%, $toColor 100%);
+}
+
+@mixin transition($trans...) {
+  -webkit-transition: $trans;
+  -moz-transition: $trans;
+  -ms-transition: $trans;
+  transition: $trans;
+}
+
+@mixin transform($trans...) {
+  -webkit-transform: $trans;
+  -moz-transform: $trans;
+  -ms-transform: $trans;
+  transform: $trans;
+}
+
+@mixin opacity($opacity) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+  filter: alpha(opacity=$opacity);
+  -webkit-opacity: $opacity/100;
+  -moz-opacity: $opacity/100;
+  opacity: $opacity/100;
+}
+
+
+@mixin multicolumn($columns,$gap) {
+  -webkit-column-count: $columns;
+  -moz-column-count: $columns;
+  column-count: $columns;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
