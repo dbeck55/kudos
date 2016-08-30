@@ -22,10 +22,10 @@ $textcolor:     #333333;
 $labelcolor:    #666666;
 $grey:          #eeeeee;
                 
-$primary:       $maincolor; //#C83732; // Main action button //
+$primary:       $maincolor; 
 $secondary:     $maincolor;
                 
-$linkcolor:     $maincolor; //#27aadf;
+$linkcolor:     $maincolor;
 $linkhover:     shade($linkcolor,2%);
                 
 $leftnav:       $textcolor;
@@ -42,53 +42,10 @@ $accent-mid:    #444444;
 
 // Fonts //
 
-$font-family-base:        'museo_sans', arial !default;
-
-$font-size-base:          14px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$line-height-base:        1.475 !default; // 20/14
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
-
-$headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
-$headings-line-height:    1.1 !default;
-$headings-color:          inherit !default;
-
-
-
+$font-family-base:  'museo_sans', arial !default;
 
 // Dimensions //
 
-$headerh:     78px;
-$footerh:     38px;
-$navw:        120px;
-
-$sectionw:    1370px; // Max-width on sections in #main
-$contentw:    $navw + $sectionw + 70px; // Width of nav, #main and #main X-axis padding 
-
-$navpadding:  25px 0 0 40px; // Padding on nav element
-$mainpadding: 0 40px 0 30px; // Padding on #main element (Sum of X-axis padding properties to be added to $contentw variable) 
-$containerp:  0 40px 0 30px; // Padding on .container element (Usually same left padding as nav and right padding as #main)
-
-
-// Grid Options //
-
-$gridlist: ('seven' 7 40px 20px) ('three' 3 20px 10px); // First Number in parenthasis is number of Columns, second number is gutter width in that specific grid
-
-$rowmargin:   0 0; // Margin on rows
-$rowpadding:  8px 0 0 0; // Padding on rows
-
-
-$screen-sm-min:   0px;
-$screen-md-min:   740px;
-$screen-lg-min:   1000px;
-
+$headerh:     95px;
+$profileh:    180px;
+$tabh:        45px;

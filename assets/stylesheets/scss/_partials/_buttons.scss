@@ -1,31 +1,5 @@
 .btn {
-  cursor: pointer;
-  display: inline-block;
-  height: 32px;
-  outline: none;
-  border: none;
-  vertical-align: baseline;
-  color: rgba(white, 0.8);
-  font-family: 'museo_sans', sans-serif;
-  font-weight: 700;
-  margin: 0em 1em 0em 0em;
-  padding: 0 2.5em;
-  text-transform: uppercase;
-  text-shadow: none;
-  line-height: 32px;
-  font-style: normal;
-  text-align: center;
-  text-decoration: none;
-  background-image: none;
-  border-radius: 2px;
-  font-size: 12px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  will-change: '';
-  -webkit-tap-highlight-color: transparent;
-  background-image: '' !important;
+
   @include transition(all 300ms ease);
   @include boxshadow(0 2px 3px rgba(0,0,0,.15));
 
@@ -124,30 +98,5 @@
   &.no-style,
   &.no-style:hover {
     @include boxshadow(0 0 0 transparent);
-  }
-}
-
-
-
-
-nav {
-  
-  .button.primary {
-      margin: 0;
-      padding: 0;
-      width: $navw - 40;
-      text-align: center;
-
-    line-height: 47px;
-    height: 45px;
-    border-bottom: 1px solid darken($primary,10%);
-    @include boxshadow(0 1px 1px rgba(black,0.4));
-    white-space: nowrap;
-    
-    
-    &:hover {
-      border-bottom: 1px solid darken($primary,5%);
-      @include boxshadow(0 3px 6px rgba(black,0.25));
-    }
   }
 }

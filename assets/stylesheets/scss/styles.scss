@@ -2,3 +2,37 @@
 @import '_partials/fonts';
 @import '_partials/mixins';
 
+@import '_partials/buttons';
+
+html,
+body,
+.container,
+.row,
+div[class^="col-"], div[class*=" col-"] {
+  height: 100%;
+}
+
+nav.navbar {
+  height: $headerh;
+  overflow: hidden;
+}
+
+.container.main {
+  @include calc('height','100% - ' + ($headerh + 40px));
+}
+
+.system-kudos {
+  height: 100%;
+  overflow: hidden;
+}
+
+.user-kudos {
+  @include calc('height','100% - ' + $profileh);
+  overflow: hidden;
+
+}
+
+  .tab-content {
+    @include calc('height','100% - ' + $tabh);
+    overflow-y: auto;
+  }
