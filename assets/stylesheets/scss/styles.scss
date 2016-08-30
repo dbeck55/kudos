@@ -5,6 +5,7 @@
 @import '_partials/buttons';
 @import '_partials/navbar';
 @import '_partials/login';
+@import '_partials/profile';
 
 /* Layout to allow tab content scroll */
 
@@ -42,7 +43,7 @@ body {
   font-family: "museo_sans", Arial, Helvetica, sans-serif;
 }
 
-/* Radio Buttons */
+/* Modal Styling */
 
 .selection {
   display: block;
