@@ -3,7 +3,10 @@
 @import '_partials/mixins';
 
 @import '_partials/buttons';
+@import '_partials/navbar';
 @import '_partials/login';
+
+/* Layout to allow tab content scroll */
 
 html,
 body,
@@ -11,11 +14,6 @@ body,
 .row,
 div[class^="col-"], div[class*=" col-"] {
   height: 100%;
-}
-
-nav.navbar {
-  height: $headerh;
-  overflow: hidden;
 }
 
 .container.main {
@@ -33,7 +31,41 @@ nav.navbar {
 
 }
 
-  .tab-content {
-    @include calc('height','100% - ' + $tabh);
-    overflow-y: auto;
+.tab-content {
+  @include calc('height','100% - ' + $tabh);
+  overflow-y: auto;
+}
+
+/* Overwrite body font */
+
+body {
+  font-family: "museo_sans", Arial, Helvetica, sans-serif;
+}
+
+/* Radio Buttons */
+
+.selection {
+  display: block;
+  @extend %clearfix;
+}
+
+label.styled-radio {
+  float: left;
+  width: 45%;
+  margin: 10px 2.5%;
+  display: inline-block;
+  
+  input {
+    display: none;
+    
+    + span {
+      display: block;
+      padding: 10px;
+      border: 1px solid transparent;
+    }
+    
+    &:checked + span {
+      border: 1px solid red;
+    }
   }
+}

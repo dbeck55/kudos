@@ -1,15 +1,9 @@
 .btn {
 
-  @include transition(all 300ms ease);
-  @include boxshadow(0 2px 3px rgba(0,0,0,.15));
-
   &:hover {
-    background-color: lighten($primary,0%);
-    @include boxshadow(0 2px 3px rgba(0,0,0,.15));
   }
 
   &:focus {
-    color: #fff;
   }
 
   &.primary {
@@ -23,80 +17,5 @@
     &:focus {
       background-color: darken($primary,10%);
     }
-  }
-  
-  &.secondary {
-    background-color: $secondary;
-    color: #fff;
-  }
-
-  &.auxiliary {
-    background-color: #4a555c;
-    color: #fff;
-  }
-
-  &.auxiliary:hover,
-  &.auxiliary.ui-state-default:hover {
-    background-color: #556066;
-    color: #fff;
-  }
-  
-  &.simple {
-    background-color: #fff;
-    color: #666666;
-  }
-  
-  &:active,
-  &.active:active {
-    background-color: darken($primary,10%);
-    background-image: '';
-    color: #fff;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-  }
-  
-  &.simple:active {
-      background-color: #fff;
-      color: $accent-mid;
-      border: 1px solid $accent-mid;
-       -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-  }
-  
-  /*--------------
-       Active
-  ---------------*/
-  
-  &.active {
-    background-color: $primary;
-    background-image: none;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.19);
-    color: rgba(0, 0, 0, 0.8);
-  }
-  &.active:hover {
-    background-color: darken($primary,10%);
-    background-image: none;
-    color: rgba(0, 0, 0, 0.8);
-  }
-  &.active:active {
-    background-color: $primary;
-    background-image: none;
-  }
-  
-  &.primary:active {
-    background-color: $primary;
-    color: #fff;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.15);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.15);
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.15);
-  }
-  
-  &.no-style,
-  &.no-style:hover {
-    @include boxshadow(0 0 0 transparent);
   }
 }
