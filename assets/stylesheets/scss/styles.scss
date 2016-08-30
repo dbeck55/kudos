@@ -12,9 +12,33 @@ div[class^="col-"], div[class*=" col-"] {
   height: 100%;
 }
 
+
+
+body {
+  font-family: "museo_sans", Arial, Helvetica, sans-serif;
+}
+
 nav.navbar {
   height: $headerh;
-  overflow: hidden;
+  background: $bannerbg url(../images/DHS_logo_30.png) no-repeat -40px -40px;
+  background-size: ($headerh * 1.84);
+  color: $bannercolor;
+  
+  h3 {
+    margin: 0 0 0 0;
+    line-height: 45px;
+    font-weight: 500;
+    font-size: .85em;
+    color: tint($bannerbg,40%);
+  }
+  
+  h1 {
+    margin: -0.25em 0 0 0;
+    font-family: "museo_slab", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 2.2em;
+    line-height: 1em;
+  }
 }
 
 .container.main {
