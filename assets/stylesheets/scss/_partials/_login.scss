@@ -9,25 +9,24 @@
 }
 .message-item:before {
     background: #fff;
-    border-radius: 2px;
-    bottom: -30px;
-    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    bottom: -22px;
     content: "";
     height: 100%;
     left: -30px;
     position: absolute;
-    width: 3px;
+    width: 2px;
+    
+    @include borderradius(2px);
 }
 .message-item:after {
-    background: #fff;
-    border: 2px solid #ccc;
+    border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     content: "";
     height: 15px;
     left: -36px;
     position: absolute;
-    top: 10px;
+    top: 2px;
     width: 15px;
 }
 .clearfix:before, .clearfix:after {
@@ -37,8 +36,40 @@
 
 .bkgd-login {
     background: #1b2934;
-    width: 100%;
     height: 300px;
+}
+.login-wrapper {
+    transform: translateY(-15%);
+    max-width: 980px;
+    
+    .panel {
+        border: none;
+        overflow: hidden;
+        @include borderradius(4px);
+        @include boxshadow(0px 0px 15px 0px rgba(0,0,0,0.3))
+    }
+    .panel-body {
+        padding: 0;
+    }
+    .col-left {
+        background-color: #247ba0;
+        min-height: 460px;
+        padding: 45px 55px;
+        background-image: url(../images/DHS_logo_10.png);
+        background-repeat: no-repeat;
+        background-size: 500px;
+        background-position: -90px -90px;
+        color: #fff;
+    }
+    .col-right {
+        background-color: #f7f7f7;
+        min-height: 460px;
+        padding: 45px 55px;
+    }
+    
+}
+.m-t {
+    margin-top: 20px;
 }
 
 
